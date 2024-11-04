@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Florist</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      width: 800px;
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .vendors {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    }
+
+    .vendor {
+      background-color: #007bff;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .vendor h3 {
+      margin-bottom: 10px;
+    }
+
+    .vendor button {
+      background-color: #fff;
+      color: #007bff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <button>Home</button>
+      <h1>Florist</h1>
+      <button>Cart</button>
+    </div>
+    <div class="vendors">
+      <% vendors.forEach(function(vendor) { %>
+        <div class="vendor">
+          <h3><%= vendor.username %></h3>
+          <p>Contact Details</p>
+          <button onclick="window.location.href='/vendor/<%= vendor.id %>/products'">View</button> <!-- Update with vendor ID -->
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</body>
+</html>

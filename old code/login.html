@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Management System Login</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Event Management System</h2>
+    <form>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === 'admin' && password === 'admin') {
+        
+        window.location.href = 'admin_dashboard.html'; 
+
+      } else if (username === 'vendor' && password === 'vendor') {
+        
+        window.location.href = 'vendor_dashboard.html'; 
+        
+      } else if (username === 'user' && password === 'user'){
+
+        window.location.href = 'user_dashboard.html';
+
+      }else {
+        alert('Invalid username or password.');
+      }
+    });
+  </script>
+</body>
+</html>

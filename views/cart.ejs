@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .column {
+      flex: 1;
+      text-align: center;
+    }
+
+    .column img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      font-weight: bold;
+      border-top: 2px solid #007bff;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header .button {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      .row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .column {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <button class="button"  onclick="window.location.href='/user-portal'">Home</button'">
+      <button class="button" onclick="window.location.href='/user/vendors'">View Products</button>
+      <button class="button">Request Item</button>
+      <button class="button">Product Status</button>
+      <button class="button" onclick="window.location.href='/logout'">LogOut</button>
+    </div>
+    <h2>Your Shopping Cart</h2>
+    <div class="table">
+      <div class="row">
+        <div class="column">Image</div>
+        <div class="column">Name</div>
+        <div class="column">Price</div>
+        <div class="column">Quantity</div>
+        <div class="column">Actions</div>
+      </div>
+      <% let totalPrice = 0; %>
+      <% cartItems.forEach(item => { %>
+        <% const itemTotal = item.product.price * item.quantity; %>
+        <% totalPrice += itemTotal; %>
+        <div class="row">
+          <div class="column"><img src="<%= item.product.image %>" alt="product Image"></div>
+          <div class="column"><%= item.product.name %></div>
+          <div class="column">$<%= item.product.price.toFixed(2) %></div>
+          <div class="column"><%= item.quantity %></div>
+          <div class="column">
+            <form action="/cart/remove/<%= item.product.id %>" method="POST" style="display:inline;">
+              <button type="submit" class="button">Remove</button>
+            </form>
+          </div>
+        </div>
+      <% }); %>
+      <div class="total">
+        <div>Total Price: $<%= totalPrice.toFixed(2) %></div>
+        <div>
+          <button class="button">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

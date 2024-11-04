@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #43609c;
+        }
+        .container {
+            text-align: center;
+            background-color: #43609c;
+            width: 80%;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        .header {
+            background-color: #d3d3d3;
+            padding: 15px;
+            font-size: 24px;
+            color: black;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        .button {
+            background-color: #d3d3d3;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            cursor: pointer;
+        }
+        .button img {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Welcome <br> Vendor
+        </div>
+        <div class="button-container">
+            <button class="button">Your Item</button>
+            <button class="button" onclick="window.location.href='/vendor/add-item'">Add Item</button>
+            <button class="button">Transaction  <span class="arrow">&#10145;</span></button>
+            <button onclick="window.location.href='/logout'">Log Out</button>
+        </div>
+    </div>
+</body>
+</html>

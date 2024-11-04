@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Form</title>
+  <link rel="stylesheet" href="/styles/signup.css">
+</head>
+<body>
+<form action="/admin/signup" method="POST">
+    <input type="text" name="username" placeholder="Username" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <select name="category" id="category">
+      <option value="category1">Category 1</option>
+      <option value="category2">Category 2</option>
+      <option value="category3">Category 3</option>
+    </select>
+    <button type="submit">Signup</button>
+  </form>
+</body>
+</html>
+  

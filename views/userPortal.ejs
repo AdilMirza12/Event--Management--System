@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .buttons {
+            display: flex; /* Change to row for horizontal alignment */
+            flex-wrap: wrap; /* Allow wrapping to new lines if necessary */
+            gap: 15px; /* Space between buttons */
+        }
+
+        .button {
+            flex: 1 1 150px; /* Allow buttons to grow and shrink, with a base width */
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between; /* Align content */
+            align-items: center; /* Center content */
+            transition: background-color 0.3s ease;
+            width: 100%; /* Full width */
+            font-size: 16px; /* Consistent font size */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .arrow {
+            margin-left: 10px; /* Space between text and arrow */
+        }
+
+        @media (max-width: 600px) {
+            .buttons {
+                flex-direction: column; /* Stack buttons on smaller screens */
+            }
+
+            button {
+                font-size: 14px; /* Slightly smaller font on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WELCOME USER</h1>
+        </header>
+        
+        <div class="buttons">
+            <div class="button">
+                <button onclick="window.location.href='/user/vendors'">
+                    Vendor 
+                    <span class="arrow">&#10145;</span>
+                </button>
+            </div>
+            <div class="button">
+                <button onclick="window.location.href='/cart'">
+                    Cart
+                    <span class="arrow">&#10145;</span>
+                </button>
+            </div>
+            <div class="button">
+                <button>
+                    Guest List
+                </button>
+            </div>
+            <div class="button">
+                <button>
+                    Order Status
+                    <span class="arrow">&#10145;</span>
+                </button>
+            </div>
+            <div class="button">
+                <button onclick="window.location.href='/logout'">
+                    Log Out <span class="arrow">&#10145;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
